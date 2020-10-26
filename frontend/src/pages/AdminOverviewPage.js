@@ -1,8 +1,7 @@
 import React from 'react';
 import AdminMenu from '../components/AdminMenu';
 
-
-function OverviewPage(props) {
+export default function OverviewPage() {
     const counter = {
         awaiting_validation: 2,
         validate_users: 5,
@@ -14,7 +13,7 @@ function OverviewPage(props) {
         <div>
             <AdminMenu />
             <div className="admin-table">
-                <table>
+                <table align="center">
                     <tr>
 
                         <td> {counter.awaiting_validation + counter.validate_users}</td>
@@ -37,4 +36,3 @@ function OverviewPage(props) {
     );
 
 }
-export default OverviewPage

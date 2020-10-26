@@ -10,10 +10,10 @@ export default function AdminMenu() {
                     <ul>
                         <li><Link to="/myadmin/overview"><span className="link">My Admin</span></Link> </li>
                         <li><Link to="/myadmin/awaiting-validation"><span className="link">Awaiting Validation</span></Link></li>
-                        <li><Link to="/myadmin/approved-users"><span className="link">Validated Users</span></Link></li>
+                        <li><Link to="/myadmin/validated-users"><span className="link">Validated Users</span></Link></li>
                         <li><Link to="/myadmin/complaints"><span className="link">Complaints</span></Link></li>
-                        <li><Link to="/myadmin/locked-users"><span className="link">Locked Users</span></Link></li>
-                        <li><Link to="/myadmin/account-setting"><span className="link">Account Setting</span></Link></li>
+                        <li>Locked Users</li>
+                        <li>Account Setting</li>
                     </ul>
 
                 </div>

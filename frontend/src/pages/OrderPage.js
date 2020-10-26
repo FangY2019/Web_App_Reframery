@@ -1,6 +1,6 @@
 import React from 'react';
 
-function OrderPage() {
+export default function OrderPage() {
     const product = {
         _id: '1',
         category: 'Products',
@@ -90,5 +90,4 @@ function OrderPage() {
     );
 }
 
-export default OrderPage
 

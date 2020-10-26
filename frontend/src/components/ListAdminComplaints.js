@@ -1,12 +1,13 @@
 import React from 'react';
-import data from '../data/data.js'
-import AdminMenu from '../components/AdminMenu.js';
-function ComplaintPage(props) {
+import { useData } from "../data/useData";
+
+export default function ListComplaints() {
+
+    const { data } = useData();
     return (
         <div>
-            <AdminMenu />
             <div className="admin-table">
-                <table>
+                <table align="center">
                     <tr>
                         <td> Complaint ID </td>
                         <td> Complainant User ID</td>
@@ -19,7 +20,7 @@ function ComplaintPage(props) {
 
                     </tr>
                     {
-                        data.complaints.map((complaint) =>
+                        data["complaints"].map((complaint) =>
                             <tr>
                                 <td> {complaint._id} </td>
                                 <td>{complaint.complainant_id}</td>
@@ -44,4 +45,3 @@ function ComplaintPage(props) {
     );
 }
 
-export default ComplaintPage

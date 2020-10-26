@@ -2,8 +2,6 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useData } from "../data/useData";
 
-// import { useNavigate } from "@reach/router"
-
 export default function ListProduct({ mainCategory }) {
   let navigate = useNavigate();
   const { data } = useData();

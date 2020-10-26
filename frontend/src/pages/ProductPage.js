@@ -1,17 +1,14 @@
 import React from 'react';
-import data from '../data/data'
+import { useData } from "../data/useData";
+import { useNavigate, useParams } from "react-router-dom";
 
 
-function ProductPage(props) {
-    const product = data.products.find(x => x._id === props.match.params.id)
-
-    const handleAddToCart = () => {
-        props.history.push("/cart")
-    }
-    const handleBuy = () => {
-        props.history.push("/payment")
-    }
-
+export default function ProductPage() {
+    let navigate = useNavigate();
+    const { data } = useData();
+    let { id } = useParams();
+    let product = data["products"].find(x => x._id === id)
+    
     return (
         <div className="product-page">
             <div className="details">
@@ -46,8 +43,8 @@ function ProductPage(props) {
                             </select>
                         </li >
 
-                        <li><button className="button-addToCart" onClick={handleAddToCart}>Add to Cart</button></li>
-                        <li><button className="button-buy" onClick={handleBuy.bind}>Buy Now</button></li>
+                        <li><button className="button-addToCart" onClick={() => navigate(`/cart`)}>Add to Cart</button></li>
+                        <li><button className="button-buy" onClick={() => navigate(`/payment`)}>Buy Now</button></li>
                     </ul>
                 </div>
             </div>
@@ -55,5 +52,3 @@ function ProductPage(props) {
     );
 }
 
-
-export default ProductPage;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function SalePage() {
+export default function SalePage() {
     const product = {
         _id: '1',
         category: 'Products',
@@ -90,5 +90,4 @@ function SalePage() {
     );
 }
 
-export default SalePage
 

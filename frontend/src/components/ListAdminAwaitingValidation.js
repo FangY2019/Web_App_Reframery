@@ -1,35 +1,33 @@
 import React from 'react';
-import data from '../data/data.js'
-import AdminMenu from '../components/AdminMenu'
+import { useData } from "../data/useData";
 
-
-function ValidateUserPage(props) {
+export default function ListAwaitingValidation() {
+    const { data } = useData();
     return (
         <div>
-            <AdminMenu />
             <div className="admin-table">
-                <table>
+                <table align="center">
                     <tr>
                         <td> Request ID </td>
                         <td> User ID</td>
                         <td> Email</td>
                         <td> Request Time </td>
-                        <td> Validate Time</td>
+                        <td> Status</td>
+                        <td> &nbsp;</td>
                     </tr>
                     {
-                        data.requests.map(request =>
-                            request.status && <tr>
+                        data["requests"].map((request) =>
+                            (request.status === false && <tr>
                                 <td> {request._id} </td>
                                 <td>{request.name}</td>
                                 <td>{request.email}</td>
                                 <td>{request.request_time} </td>
-                                <td>{request.validate_time}</td>
-
-                            </tr>
+                                <td>pending</td>
+                                <td><button className="button-validate">Validate</button></td>
+                            </tr>)
 
                         )
                     }
-
 
                 </table>
             </div>
@@ -38,4 +36,3 @@ function ValidateUserPage(props) {
     );
 }
 
-export default ValidateUserPage
