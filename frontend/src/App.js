@@ -28,6 +28,12 @@ import OverviewPage from './pages/AdminOverviewPage';
 import AwaitingPage from './pages/AdminAwaitingPage';
 import ValidateUserPage from './pages/AdminValidateUserPage';
 
+import Signin from './pages/Signin'
+import Register from './pages/Register'
+
+import WalletPage from './pages/WalletPage'
+import TransHistPage from './pages/TransHistPage'
+
 export default function App() {
   return (
     <DataProvider>
@@ -42,7 +48,7 @@ export default function App() {
               {/* <Route path="/cart" component={CartPage} /> */}
               {/* <Route path="/payment" component={PaymentPage} /> */}
               <Route
-                path="/myreframery/purchase-records/order-details"
+                path="/myreframery/orders/purchases/purchase-details"
                 element={<OrderPage />}
               />
               <Route path="/user-profile" element={<UserPage />} />
@@ -55,11 +61,16 @@ export default function App() {
               <Route path="/edit-category" element={<EditCategoryPage />} />
               <Route path="*" element={<NotFound />} />
 
-              <Route path="/myreframery/orders/sale/sale-details" element={<SalePage />} />
-              <Route path="/myadmin/overview" element={<OverviewPage />} />
-              <Route path="/myadmin/awaiting-validation" element={<AwaitingPage />} />
-              <Route path="/myadmin/validated-users" element={<ValidateUserPage />} />
-              <Route path="/myadmin/complaints" element={<ComplaintPage />} />
+              <Route path="/myreframery/orders/sales/sale-details" element={<SalePage />} />
+              <Route path="/admin" element={<OverviewPage />} />
+              <Route path="/admin/awaiting-validation" element={<AwaitingPage />} />
+              <Route path="/admin/validated-users" element={<ValidateUserPage />} />
+              <Route path="/admin/complaints" element={<ComplaintPage />} />
+
+              <Route path="/signin" element={<Signin />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/mywallet" element={<WalletPage />} />
+              <Route path="/myreframery/records" element={<TransHistPage />} />
             </Routes>
           </div>
         </main>
