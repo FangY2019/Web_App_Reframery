@@ -7,7 +7,7 @@ export default function Register() {
             <div className="form">
                 <form className="Register">
                     <ul>
-                        <li><h3>Register</h3></li>
+                        <li><h3>SignUp</h3></li>
                         <li><label >Email Address </label></li>
                         <li><input type="email" name="email" id="email" ></input></li>
                         <li><label >User Name </label></li>
@@ -22,10 +22,11 @@ export default function Register() {
                             <option>USA</option>
                             <option>Brazil</option>
                         </select></li>
-                        <li className="checkbox"><input type="checkbox" />Register as an administrator</li>
-
+                        {/* <li className="checkbox"><input type="checkbox" />Register as an administrator</li> */}
+                        <li className="message">Already have account? <Link to="/signin" className="linkto">&nbsp;Login</Link></li>
                         <li><input type="submit" className="submit"></input></li>
-                        <li className="message">Already have account? <Link to="/signin" className="linkto">&nbsp;Signin</Link></li>
+                        
+                        <li>By continuing, you agree to Reframery's <Link to="/term_of_service">Term of Service</Link> and <Link to="/privacy_policy">Privacy Policy</Link>.</li>
                     </ul>
                 </form>
 

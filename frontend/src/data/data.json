@@ -6,10 +6,13 @@
       "name": "Birthday Cake",
       "image": "/images/product_cake.jpg",
       "price": 20,
-      "quantity": 20,
+      "stock": 0,
       "rating": 4,
+      "numOfReviews": 10,
+      "Review": "Good",
       "description": "Homebaked Cakes - ideal for Birthdays and Special Occasions. ",
       "city": "Hamilton",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     },
     {
@@ -18,10 +21,12 @@
       "name": "Cookies",
       "image": "/images/product_cookies.jpg",
       "price": 3,
-      "quantity": 20,
+      "stock": 20,
       "rating": 4.5,
+      "numOfReviews": 10,
       "description": " ",
       "city": "Hamilton",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     },
     {
@@ -30,10 +35,12 @@
       "name": "Cute Cookies",
       "image": "/images/product_candy.jpg",
       "price": 4,
-      "quantity": 20,
+      "stock": 20,
       "rating": 4.5,
+      "numOfReviews": 10,
       "description": "",
       "city": "Hamilton",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     }
   ],
@@ -44,10 +51,12 @@
       "name": "plumber",
       "image": "/images/service_plumber.jpg",
       "price": 20,
-      "quantity": 20,
+      "stock": 20,
       "rating": 5,
+      "numOfReviews": 10,
       "description": "",
       "city": "Hamilton",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     },
     {
@@ -56,10 +65,12 @@
       "name": "Air Conditioner Repair",
       "image": "/images/service_airConditionerRepair.jpg",
       "price": 20,
-      "quantity": 20,
+      "stock": 20,
       "rating": 5,
+      "numOfReviews": 10,
       "description": "",
       "city": "Toronto",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     },
     {
@@ -68,24 +79,28 @@
       "name": "Heating Maintenance",
       "image": "/images/service_heatingMaintance.jpg",
       "price": 20,
-      "quantity": 20,
+      "stock": 20,
       "rating": 5,
+      "numOfReviews": 10,
       "description": "",
       "city": "Toronto",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     }
   ],
-  "competences": [
+  "expertises": [
     {
       "_id": "1",
       "category": "Competences",
       "name": "Food Deliver",
       "image": "/images/competence_deliver.jpg",
       "price": 19,
-      "quantity": 20,
+      "stock": 20,
       "rating": 5,
+      "numOfReviews": 10,
       "description": "",
       "city": "Toronto",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     },
     {
@@ -94,10 +109,12 @@
       "name": "Lawn Mowing",
       "image": "/images/competence_mowLawn.jpeg",
       "price": 18,
-      "quantity": 20,
+      "stock": 20,
       "rating": 4.5,
+      "numOfReviews": 10,
       "description": "",
       "city": "Toronto",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     },
     {
@@ -106,10 +123,12 @@
       "name": "Sweep Snow",
       "image": "/images/competence_sweepSnow.jpg",
       "price": 19,
-      "quantity": 20,
+      "stock": 20,
       "rating": 4.5,
+      "numOfReviews": 10,
       "description": "",
       "city": "Toronto",
+      "community": "Canada",
       "address": "100 Main Street South Hamilton, ON L3P 5H8 Canada"
     }
   ],

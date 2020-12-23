@@ -16,7 +16,6 @@ export default function TransHistPage() {
 
 function BoughtItems() {
     const { data } = useData();
-    let product = data["products"].find(x => x._id === "1")
     return (
         <div >
             <h4>Purchase Records</h4>
@@ -31,7 +30,7 @@ function BoughtItems() {
                         <td>Total</td>
                         <td>Status</td>
                     </tr>
-
+                    {data.products.map((product) => (
                         <tr>
                             <td><Link to="/myreframery/orders/purchases/purchase-details">P-000000-000000{product._id}</Link></td>
                             <td>
@@ -48,6 +47,7 @@ function BoughtItems() {
                             <td>RCC$ {product.price}</td>
                             <td>Pay Success</td>
                         </tr>
+                    ))}
 
                 </table>
             </div>
@@ -58,7 +58,6 @@ function BoughtItems() {
 
 function SoldItems() {
     const { data } = useData();
-    let product = data["products"].find(x => x._id === "1")
     return (
         <div >
 
@@ -75,7 +74,7 @@ function SoldItems() {
                         <td>Total</td>
                         <td>Status</td>
                     </tr>
-
+                    {data.products.map((product) => (
                         <tr>
                             <td><Link to="/myreframery/orders/sales/sale-details">P-000000-000000{product._id}</Link></td>
                             <td>
@@ -92,7 +91,7 @@ function SoldItems() {
                             <td>RCC$ {product.price}</td>
                             <td>Pay Success</td>
                         </tr>
-
+                    ))}
                 </table>
             </div>
 

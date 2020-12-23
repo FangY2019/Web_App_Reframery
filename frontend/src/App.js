@@ -8,7 +8,9 @@ import Sidebar from "./components/SideBar";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 
-import ProductPage from "./pages/ProductPage";
+import DetailsProductPage from "./pages/DetailsProductPage";
+import DetailsServicePage from "./pages/DetailsServicePage";
+import DetailsExpertisePage from "./pages/DetailsExpertisePage";
 import HomePage from "./pages/HomePage";
 // import CartPage from "./components/CartPage";
 // import PaymentPage from "./components/PaymentPage";
@@ -23,16 +25,20 @@ import DeleteCategoryPage from "./pages/DeleteCategoryPage";
 import EditCategoryPage from "./pages/EditCategoryPage";
 
 import SalePage from './pages/SalePage';
-import ComplaintPage from './pages/AdminComplaintPage';
+import UpdateBalancePage from "./pages/AdminUpdateUserBalancePage";
 import OverviewPage from './pages/AdminOverviewPage';
 import AwaitingPage from './pages/AdminAwaitingPage';
 import ValidateUserPage from './pages/AdminValidateUserPage';
+import CreateAdminPage from './pages/AdminCreateAdminPage';
+import AdminProfilePage from "./pages/AdminProfilePage";
 
 import Signin from './pages/Signin'
 import Register from './pages/Register'
 
 import WalletPage from './pages/WalletPage'
 import TransHistPage from './pages/TransHistPage'
+
+
 
 export default function App() {
   return (
@@ -44,7 +50,9 @@ export default function App() {
           <div className="content">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/product/:id" element={<ProductPage />} />
+              <Route path="/product/:id" element={<DetailsProductPage />} />
+              <Route path="/service/:id" element={<DetailsServicePage />} />
+              <Route path="/expertise/:id" element={<DetailsExpertisePage />} />
               {/* <Route path="/cart" component={CartPage} /> */}
               {/* <Route path="/payment" component={PaymentPage} /> */}
               <Route
@@ -65,7 +73,11 @@ export default function App() {
               <Route path="/admin" element={<OverviewPage />} />
               <Route path="/admin/awaiting-validation" element={<AwaitingPage />} />
               <Route path="/admin/validated-users" element={<ValidateUserPage />} />
-              <Route path="/admin/complaints" element={<ComplaintPage />} />
+              <Route path="/admin/update-users-balance" element={<UpdateBalancePage />} />
+              <Route path="/admin/create-admin-account" element={<CreateAdminPage />} />
+              <Route path="/admin/my-profile" element={<AdminProfilePage />} />
+              
+
 
               <Route path="/signin" element={<Signin />} />
               <Route path="/register" element={<Register />} />
