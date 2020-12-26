@@ -1,0 +1,37 @@
+{
+  "name": "capstone_project_reframery",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "2020-10-26: backup the last commit and copy the src folder and package.json from 4zp3 master; npm install at terminal(\\frontend>)\r 2020-12-22: create backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yef2019/Capstone_Project_Reframery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yef2019/Capstone_Project_Reframery/issues"
+  },
+  "homepage": "https://github.com/yef2019/Capstone_Project_Reframery#readme",
+  "dependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.8"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-plugin-react": "^7.21.5",
+    "nodemon": "^2.0.6"
+  }
+}
