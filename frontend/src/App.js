@@ -38,15 +38,19 @@ import Register from './pages/Register'
 import WalletPage from './pages/WalletPage'
 import TransHistPage from './pages/TransHistPage'
 
-
+import {useSelector} from 'react-redux';
 
 export default function App() {
+
+  const userSignin = useSelector(state => state.userSignin);
+  const {userInfo} = userSignin;
   return (
     <DataProvider>
       <div className="container">
         <Header />
         <main className="main">
-          <Sidebar />
+          {userInfo ? (<Sidebar />) : null}
+          
           <div className="content">
             <Routes>
               <Route path="/" element={<HomePage />} />
