@@ -12,7 +12,7 @@ export default function Register() {
     const [password, setPassword] = useState('');
     const [communityID, setCommunityID] = useState('5fe76baab69d0843c44af87e');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const redirect = '/'; 
+    const redirect = '/';
     const userRegister = useSelector(state => state.userRegister);
     const { userInfo, loading, error } = userRegister;
 
@@ -29,12 +29,15 @@ export default function Register() {
     useEffect(() => {
         // if the user sign in sucessfully, go to the redirect link
         if (userInfo) {
-          // props.history.push(redirect);
-          navigate(redirect);
+            // props.history.push(redirect);
+            navigate(redirect);
         }
-      }, [navigate, redirect, userInfo]);
+    }, [navigate, redirect, userInfo]);
     return (
         <div className="register-container">
+            <div>
+                <Link to="/home"><span>back to home</span></Link>
+            </div>
             <div className="form">
                 <form className="Register" onSubmit={submitHandler}>
                     <div>

@@ -14,6 +14,9 @@ export default function ListItem({ mainCategory }) {
   const itemList = useSelector((state) => state.itemList);
   const { loading, error, items } = itemList;
 
+  const userSignin = useSelector(state => state.userSignin);
+  const { userInfo } = userSignin;
+
   // console.log(products);
 
   //send the request to the backend
@@ -34,50 +37,51 @@ export default function ListItem({ mainCategory }) {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-            <div>
-              <p className="home-category">
+            <div className="itemlist-container">
+              <div className="home-category">
                 {loweredCate.charAt(0).toUpperCase() + loweredCate.slice(1)}
-              </p>
-              
-              <ul className="items">
+              </div>
+              <div className="list-items">
                 {items[loweredCate].map((item) => (
-                  <li key={item._id}>
-                    <div className="item">
-
-                      <img
-                        className="item-image"
-                        src={item.image}
-                        onClick={() => {
-                          (loweredCate === "products") ? navigate(`/product/${item._id}`) :
-                            (loweredCate === "services") ? navigate(`/service/${item._id}`) :
-                              navigate(`/expertise/${item._id}`)
-                        }}
-                        alt={item.name}
-                      ></img>
-
+                  <div className="item">
+                    <div className="image">
+                      {userInfo ? (<Link to={(loweredCate === "products") ? "/product/" + item._id :
+                        (loweredCate === "services") ? "/service/" + item._id :
+                          "/expertise/" + item._id}>
+                        <img
+                          className="item-image"
+                          src={item.image}
+                          alt={item.name}
+                        ></img>
+                      </Link>) : (<Link to="/signin">
+                        <img
+                          className="item-image"
+                          src={item.image}
+                          alt={item.name}
+                        ></img>
+                      </Link>)}
+                    </div>
+                    <div className="item-info">
                       <div className="item-name">
-
-                        <Link to={(loweredCate === "products") ? "/product/" + item._id :
+                        {userInfo ? (<Link to={(loweredCate === "products") ? "/product/" + item._id :
                           (loweredCate === "services") ? "/service/" + item._id :
                             "/expertise/" + item._id}>
                           <span className="link">{item.name}</span>
-                        </Link>
-
-                        {/* <Link to={"/product/" + item._id}>
-                  <span className="link">{item.name}</span>
-                </Link> */}
+                        </Link>) : (<Link to="/signin">
+                          <span className="link">{item.name}</span>
+                        </Link>)}
                       </div>
                       <div className="item-price">${item.price}</div>
-                      <div className="item-rating"><Rating rating={item.rating} numOfReviews={0}></Rating></div>
-                      <div className="item-city">{item.city} </div>
+                      <div className="item-rating"><Rating rating={5} numOfReviews={1}></Rating></div>
+                      <div className="item-city">Hamilton, ON</div>
                     </div>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
+
             </div>
-          )}
-
-
+          )
+      }
     </div>
   );
 }

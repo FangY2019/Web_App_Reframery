@@ -21,7 +21,7 @@ export default function Header() {
         <img
           className="logo"
           src="/logo_small.png"
-          onClick={() => navigate(`/`)}
+          onClick={() => navigate(`/home`)}
           alt="logo"
           width="50"
         ></img>
@@ -35,7 +35,7 @@ export default function Header() {
           <Link to="#">{userInfo.username} <i className="fa fa-caret-down"></i>
           </Link>
           <ul className= "dropdown-content">
-            <Link to="#signout" onClick={signoutHandler}>Sign out</Link>
+            <Link to="/home" onClick={signoutHandler}>Sign out</Link>
           </ul>
           </div>
         ) :(
@@ -43,10 +43,6 @@ export default function Header() {
           <span className="link">Sign In</span>
         </Link>
         )}
-        
-        <Link to="/register">
-          <span className="link">Register</span>
-        </Link>
         <Link to="/cart">
           <span className="link">Cart</span>
         </Link>
