@@ -7,16 +7,18 @@ import MessageBox from "../components/MessageBox";
 // import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input/input'
 import { Link } from "react-router-dom";
-import AddressInput from "../components/AddressInputComponent";
 
 export default function UserPage(props) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // get sign in user token
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
-
+  // get sign in user detail informaton
   const userDetails = useSelector(state => state.userDetails);
   const { loading, error, user } = userDetails;
 
+  // constant for update information
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -25,11 +27,8 @@ export default function UserPage(props) {
   const [lastName, setLastName] = useState('');
   const [birthday, setBirthday] = useState('');
   const [addressEdited, setAddressEdited] = useState(false);
-  // console.log(username==="");
 
-
-  const dispatch = useDispatch();
-
+  // function for updating user information
   const updateHandler = (e) => {
     e.preventDefault();
     setAddressEdited(true);
@@ -45,6 +44,8 @@ export default function UserPage(props) {
     ));
     window.location.reload();
   };
+
+
 
   useEffect(() => {
     dispatch(detailsUser(userInfo._id))
@@ -80,7 +81,7 @@ export default function UserPage(props) {
                 <div>
                   <label >Phone</label>
                   <PhoneInput placeholder={user.phoneNumber} onChange={setPhoneNumber} />
-                  {user.phoneNumber === "" ? (<button onClick={() => setEdited(true)}>Add</button>) :
+                  {user.phoneNumber === "" ? (<button onClick={updateHandler}>Add</button>) :
                     (<button onClick={updateHandler}>Update</button>)}
                 </div>
 
