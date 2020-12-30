@@ -75,15 +75,33 @@ userRouter.post(
 userRouter.get(
     '/:id',
     expressAsyncHandler(async (req, res) => {
-      const user = await User.findById(req.params.id);
-      if (user) {
-        res.send(user);
-      } else {
-        res.status(404).send({ message: 'User Not Found' });
-      }
+        const user = await User.findById(req.params.id);
+        if (user) {
+            res.send(user);
+        } else {
+            res.status(404).send({ message: 'User Not Found' });
+        }
     })
-  );
+);
 
-  
+//   update user information
+userRouter.put(
+    '/:id',
+    expressAsyncHandler(async (req, res) => {
+        await User.findByIdAndUpdate(req.params.id,
+            {
+                username: req.body.username, password: req.body.password, phoneNumber: req.body.phoneNumber,
+                address: req.body.address,
+                firstName: req.body.firstName, lastName: req.body.lastName, birthday: req.body.birthday
+            }
+        );
+        const updatedUser = await User.findById(req.params.id);
+        if (updatedUser) {
+            res.send(updatedUser);
+        } else {
+            res.status(404).send({ message: 'User Not Found' });
+        }
+    })
+);
 
 export default userRouter;

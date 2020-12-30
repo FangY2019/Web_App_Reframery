@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { itemDetailsReducer, itemListReducer } from './reducers/itemReducers.js';
-import { userDetailsReducer, userRegisterReducer, userSigninReducer } from './reducers/userReducer.js';
+import { userDetailsReducer, userRegisterReducer, userSigninReducer, userUpdateReducer } from './reducers/userReducer.js';
 
 const initialState = {
     //store the userInfo in the local storage, when refresh the page, the userInfo still exist
@@ -16,6 +16,7 @@ const reducer = combineReducers({
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
+    userUpdate: userUpdateReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

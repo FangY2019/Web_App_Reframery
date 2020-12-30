@@ -10,6 +10,9 @@ import {
     USER_DETAILS_FAIL,
     USER_DETAILS_REQUEST,
     USER_DETAILS_SUCCESS,
+    USER_UPDATE_REQUEST,
+    USER_UPDATE_SUCCESS,
+    USER_UPDATE_FAIL,
 } from '../constants/userConstants';
 
 export const signin = (email, password) => async (dispatch) => {
@@ -61,6 +64,21 @@ export const detailsUser = (userID) => async (dispatch, getState) => {
     } catch (error) {
         dispatch({
             type: USER_DETAILS_FAIL, payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message
+        });
+    }
+};
+
+export const updateUser = (userID, username, password, phoneNumber, address, firstName, lastName, birthday) => async (dispatch) => {
+    dispatch({ type: USER_UPDATE_REQUEST, payload: userID });
+    try {
+        const { data } = await Axios.put(`/api/users/${userID}`, {username, password, phoneNumber, address, firstName, lastName, birthday});
+        dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
+    } catch (error) {
+        dispatch({
+            type: USER_UPDATE_FAIL, payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message
