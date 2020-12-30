@@ -74,7 +74,7 @@ export default function UserPage() {
                 </div>
                 <div>
                   <label >Register Time</label>
-                  <input id="registerTime" placeholder={user.registerTime} readonly></input>
+                  <input id="registerTime" placeholder={user.registerTime.slice(0,10)}readonly></input>
                   <button className="primary" type="submit" >Unsubscribe</button>
                 </div>
                 

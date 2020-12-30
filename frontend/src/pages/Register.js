@@ -69,7 +69,7 @@ export default function Register() {
                             <option key="Brazil" value="5fe76baab69d0843c44af880">Brazil</option>
                         </select>
                     </div>
-                    {/* <li className="checkbox"><input type="checkbox" />Register as an administrator</li> */}
+                    <li className="checkbox"><input type="checkbox" />Register as an administrator</li>
                     <div className="message">Already have account?
                     <Link to="/signin" className="linkto">&nbsp;Login</Link>
                     </div>

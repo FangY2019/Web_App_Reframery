@@ -16,7 +16,7 @@ export default function Signin(props) {
   // console.log(props.history.state);
 
   // const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
-  const redirect = '/home';
+  // const redirect = '/home';
 
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo, loading, error } = userSignin;
@@ -34,9 +34,13 @@ export default function Signin(props) {
     // if the user sign in sucessfully, go to the redirect link
     if (userInfo) {
       // props.history.push(redirect);
-      navigate(redirect);
+      if(userInfo.admin || userInfo.superAdmin){
+        navigate('/admin');
+      }else{
+        navigate('/home');
+      }
     }
-  }, [navigate, redirect, userInfo]);
+  }, [navigate, userInfo]);
 
   return (
     <div className="form" >

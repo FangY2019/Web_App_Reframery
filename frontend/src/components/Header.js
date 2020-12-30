@@ -32,8 +32,12 @@ export default function Header() {
         {
         userInfo ? (
           <div className="dropdown">
-          <Link to="#">{userInfo.username} <i className="fa fa-caret-down"></i>
-          </Link>
+            {
+              (userInfo.admin || userInfo.superAdmin )? (<Link to="/admin">{userInfo.username} <i className="fa fa-caret-down"></i>
+              </Link>) : (<Link to="/home">{userInfo.username} <i className="fa fa-caret-down"></i>
+              </Link>)
+            }
+
           <ul className= "dropdown-content">
             <Link to="/home" onClick={signoutHandler}>Sign out</Link>
           </ul>
@@ -43,6 +47,10 @@ export default function Header() {
           <span className="link">Sign In</span>
         </Link>
         )}
+        
+        <Link to="/register">
+          <span className="link">Register</span>
+        </Link>
         <Link to="/cart">
           <span className="link">Cart</span>
         </Link>

@@ -42,6 +42,8 @@ import WellcomePage from './pages/WellcomePage'
 
 import {useSelector} from 'react-redux';
 
+import AdminManagePage from "./pages/AdminManagePage";
+
 export default function App() {
 
   const userSignin = useSelector(state => state.userSignin);
@@ -51,7 +53,7 @@ export default function App() {
       <div className="container">
       {userInfo ? (<Header />) : null}
         <main className="main">
-          {userInfo ? (<Sidebar />) : null}
+          {userInfo ? (userInfo.admin ? null : userInfo.superAdmin ? null : <Sidebar />) : null}
           
           <div className="content">
             <Routes>
@@ -83,6 +85,8 @@ export default function App() {
               <Route path="/admin/update-users-balance" element={<UpdateBalancePage />} />
               <Route path="/admin/create-admin-account" element={<CreateAdminPage />} />
               <Route path="/admin/my-profile" element={<AdminProfilePage />} />
+              <Route path="/admin/administrator-management" element={<AdminManagePage />} />
+
               
 
 
