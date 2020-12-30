@@ -11,7 +11,12 @@ export const USER_DETAILS_REQUEST = 'USER_DETAILS_REQUEST';
 export const USER_DETAILS_SUCCESS = 'USER_DETAILS_SUCCESS';
 export const USER_DETAILS_FAIL = 'USER_DETAILS_FAIL';
 
-// constants for update user information
+// constants for updating user information
 export const USER_UPDATE_REQUEST = 'USER_UPDATE_REQUEST';
 export const USER_UPDATE_SUCCESS = 'USER_UPDATE_SUCCESS';
 export const USER_UPDATE_FAIL = 'USER_UPDATE_FAIL';
+
+// constants for deleting user information
+export const USER_DELETE_REQUEST = 'USER_DELETE_REQUEST';
+export const USER_DELETE_SUCCESS = 'USER_DELETE_SUCCESS';
+export const USER_DELETE_FAIL = 'USER_DELETE_FAIL';

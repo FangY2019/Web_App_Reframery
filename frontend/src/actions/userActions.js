@@ -13,6 +13,9 @@ import {
     USER_UPDATE_REQUEST,
     USER_UPDATE_SUCCESS,
     USER_UPDATE_FAIL,
+    USER_DELETE_REQUEST,
+    USER_DELETE_SUCCESS,
+    USER_DELETE_FAIL,
 } from '../constants/userConstants';
 
 export const signin = (email, password) => async (dispatch) => {
@@ -32,7 +35,6 @@ export const signin = (email, password) => async (dispatch) => {
 };
 export const signout = () => (dispatch) => {
     localStorage.removeItem('userInfo');
-    //   localStorage.removeItem('cartItems');
     dispatch({ type: USER_SIGNOUT });
 };
 
@@ -79,6 +81,22 @@ export const updateUser = (userID, username, password, phoneNumber, address, fir
     } catch (error) {
         dispatch({
             type: USER_UPDATE_FAIL, payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message
+        });
+    }
+};
+
+
+export const deleteUser = (userID) => async (dispatch) => {
+    dispatch({ type: USER_DELETE_REQUEST, payload: userID });
+    try {
+        const { data } = await Axios.delete(`/api/users/${userID}`);
+        dispatch({ type: USER_DELETE_SUCCESS, payload: data });
+    } catch (error) {
+        dispatch({
+            type: USER_DELETE_FAIL, payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message

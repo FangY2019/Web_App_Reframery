@@ -104,4 +104,19 @@ userRouter.put(
     })
 );
 
+// delete a user
+userRouter.delete(
+    '/:id',
+    expressAsyncHandler(async (req, res) => {        
+        const user = await User.findById(req.params.id);
+        if (user) {
+            await User.findByIdAndRemove(req.params.id);
+            const deletedUser = await User.findById(req.params.id);
+            res.send(deletedUser);
+        } else {
+            res.status(404).send({ message: 'User Not Found' });
+        }
+    })
+);
+
 export default userRouter;

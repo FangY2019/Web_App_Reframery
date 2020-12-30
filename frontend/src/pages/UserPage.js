@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from "react-router";
-import { detailsUser, updateUser } from "../actions/userActions";
+import { deleteUser, detailsUser, updateUser } from "../actions/userActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 // import 'react-phone-number-input/style.css'
@@ -45,7 +45,12 @@ export default function UserPage(props) {
     window.location.reload();
   };
 
-
+  // function for remove the user from the system
+  const deleteHandler = (e) => {
+    e.preventDefault();
+    dispatch(deleteUser(userInfo._id));
+    navigate('/home');
+  };
 
   useEffect(() => {
     dispatch(detailsUser(userInfo._id))
@@ -143,7 +148,7 @@ export default function UserPage(props) {
                 <div>
                   <label >Register Time</label>
                   <input id="registerTime" placeholder={user.registerTime.slice(0, 10)} readOnly></input>
-                  <button  >Unsubscribe</button>
+                  <button  onClick={deleteHandler}>Unsubscribe</button>
                 </div>
 
 
