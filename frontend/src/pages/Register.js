@@ -12,7 +12,7 @@ export default function Register() {
     const [password, setPassword] = useState('');
     const [communityID, setCommunityID] = useState('5fe76baab69d0843c44af87e');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const redirect = '/';
+    const redirect = '/home';
     const userRegister = useSelector(state => state.userRegister);
     const { userInfo, loading, error } = userRegister;
 

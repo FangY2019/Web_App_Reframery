@@ -14,6 +14,7 @@ export default function Header() {
 
   const signoutHandler = () => {
     dispatch(signout());
+    window.location.reload();
   }
   return (
     <header className="header">

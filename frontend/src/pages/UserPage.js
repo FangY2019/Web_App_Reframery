@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from "react-router";
-import { deleteUser, detailsUser, updateUser } from "../actions/userActions";
+import { deleteUser, detailsUser, signout, updateUser } from "../actions/userActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 // import 'react-phone-number-input/style.css'
@@ -49,6 +49,7 @@ export default function UserPage(props) {
   const deleteHandler = (e) => {
     e.preventDefault();
     dispatch(deleteUser(userInfo._id));
+    dispatch(signout());
     navigate('/home');
   };
 
@@ -150,9 +151,6 @@ export default function UserPage(props) {
                   <input id="registerTime" placeholder={user.registerTime.slice(0, 10)} readOnly></input>
                   <button  onClick={deleteHandler}>Unsubscribe</button>
                 </div>
-
-
-
               </div>
             )}
       </form>

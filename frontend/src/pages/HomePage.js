@@ -2,13 +2,14 @@ import React from "react";
 import ListItem from "../components/ListItem";
 import { useSelector } from 'react-redux';
 import homeImage from "../img/home_img.jpg"
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Footer from '../components/Footer'
 
 export default function Homepage() {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
+
   return (
     <div>
       <div className="home-container">
@@ -25,7 +26,7 @@ export default function Homepage() {
                   </div>
                   <div>
                     <Link to="/register">
-                      <span className="link">Register</span>
+                      <span className="link" >Register</span>
                     </Link>
                   </div>
                   <div>
